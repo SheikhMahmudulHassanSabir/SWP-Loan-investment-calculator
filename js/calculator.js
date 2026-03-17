@@ -60,6 +60,7 @@ function calculate() {
   const totalPaid          = emi * months;
 
   let corpus = loanAmount;
+  let trueCorpus = loanAmount;
   const labels     = [];
   const chartData  = [];
   const tableRows  = [];
@@ -67,6 +68,10 @@ function calculate() {
   for (let m = 1; m <= months; m++) {
     const startVal      = corpus;
     const interestEarned = corpus * monthlyInvestRate;
+
+    // Track true corpus without zero-floor for accurate profit/loss
+    trueCorpus += (trueCorpus * monthlyInvestRate) - emi;
+
     corpus += interestEarned - emi;
     if (corpus < 0) corpus = 0;
 
@@ -78,7 +83,7 @@ function calculate() {
     }
   }
 
-  const profitLoss = corpus - (totalPaid - loanAmount);
+  const profitLoss = trueCorpus;
 
   /* Update tiles */
   document.getElementById('emiResult').textContent       = formatCurrency(emi);
