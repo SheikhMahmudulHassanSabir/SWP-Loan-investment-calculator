@@ -1,6 +1,6 @@
 # LoanCalc — Loan-Funded Investment Calculator
 
-![LoanCalc Overview](index.html) <!-- Replace with an actual screenshot or banner if available -->
+![LoanCalc Overview](A.png) <!-- Replace with an actual screenshot or banner if available -->
 
 **LoanCalc** is a financial projection tool designed to simulate the strategy of taking a loan to fund an investment, and subsequently using a Systematic Withdrawal Plan (SWP) to repay the monthly Equated Monthly Installment (EMI). 
 
@@ -69,6 +69,4 @@ Running LoanCalc locally is incredibly straightforward as it consists entirely o
 **For Educational Purposes Only. Not Financial Advice.**
 LoanCalc is a simulation tool designed to help illustrate the mathematical concepts of loans, investments, and systematic withdrawals. Unforeseen market conditions, actual tax implications, processing fees, and fluctuations in variable interest rates are not factored into these basic calculations. Always consult with a certified financial advisor before making actual financial decisions or using leverage (borrowed money) to invest.
 
-## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details. (Include a LICENSE file in your repository).
