@@ -1,0 +1,467 @@
+/* =========================================================================
+   CALCULATOR PAGE STYLES
+   ========================================================================= */
+
+/* ─── 1. Layout & Grid ───────────────────────────── */
+.calc-hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(2rem, 4vw, 5rem) clamp(1.25rem, 4vw, 3.5rem) 1.5rem;
+}
+
+@media (max-width: 500px) {
+  .calc-hero {
+    padding: 1.5rem 1rem;
+  }
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3.5rem) clamp(2rem, 4vw, 5rem);
+}
+
+@media (max-width: 900px) {
+  .calc-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .calc-grid {
+    gap: 1.5rem;
+    padding: 0 1rem 1.5rem;
+  }
+}
+
+/* ─── 2. Input Card & Form Elements ──────────────── */
+.input-card h2 {
+  margin-bottom: 1.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.input-group {
+  margin-bottom: 1.25rem;
+}
+
+.input-group label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: clamp(0.75rem, 2vw, 0.88rem);
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 500px) {
+  .input-group label {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.input-group label .val-badge {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper input[type="number"] {
+  width: 100%;
+  padding: clamp(10px, 2vw, 14px) 48px clamp(10px, 2vw, 14px) 16px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  font-weight: 600;
+  color: var(--ink);
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+@media (max-width: 500px) {
+  .input-wrapper input[type="number"] {
+    min-height: 48px;
+    font-size: 16px;
+  }
+}
+
+.input-wrapper input[type="number"]::-webkit-outer-spin-button,
+.input-wrapper input[type="number"]::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.input-wrapper input[type="number"]:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: #fff;
+}
+
+.input-unit {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.range-slider {
+  width: 100%;
+  height: 6px;
+  margin-top: 10px;
+  border-radius: 3px;
+  background: red;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.range-slider::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform 0.15s;
+  -webkit-appearance: none;
+}
+
+.range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.range-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+/* ─── 3. Warnings & Break-even ───────────────────── */
+.warning-box {
+  display: none;
+  margin-bottom: 1rem;
+  padding: 14px 18px;
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  color: #7a5c10;
+  background: #fff8e6;
+}
+
+.warning-box.show {
+  display: block;
+}
+
+.warning-box.danger {
+  border-left-color: var(--accent);
+  color: #000000;
+  background: #f5f5f5;
+}
+
+.break-even-box {
+  display: none;
+  margin-bottom: 1rem;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  color: #fff;
+  text-align: center;
+  background: var(--ink);
+}
+
+.break-even-box.show {
+  display: block;
+}
+
+.break-even-box strong {
+  color: red;
+}
+
+.info-hint {
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* ─── 4. Action Buttons ──────────────────────────── */
+.calc-btn {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 8px;
+  padding: clamp(12px, 3vw, 16px);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--accent);
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+@media (max-width: 500px) {
+  .calc-btn {
+    padding: 14px;
+    font-size: 0.95rem;
+  }
+}
+
+.calc-btn:hover {
+  transform: translateY(-2px);
+  background: #333333;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.calc-btn:active {
+  transform: translateY(0);
+}
+
+/* ─── 5. Results Area ────────────────────────────── */
+.results-card h2 {
+  margin-bottom: 1.25rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 500px) {
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.result-tile {
+  padding: 18px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  background: #fff;
+  transition: transform 0.2s;
+}
+
+.result-tile:hover {
+  transform: scale(1.02);
+}
+
+.result-tile.accent {
+  border-color: var(--ink);
+  color: #fff;
+  background: var(--ink);
+}
+
+.result-tile.profit {
+  border-color: #a0dbbe;
+  background: #eefaf4;
+}
+
+.result-tile.loss {
+  border-color: #f5b8b0;
+  background: #fff0ee;
+}
+
+.tile-label {
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.result-tile.accent .tile-label { color: #fff; }
+.result-tile.profit .tile-label { color: #2a7a55; }
+.result-tile.loss .tile-label { color: #9b2f1e; }
+
+.tile-value {
+  font-family: var(--font-body);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+}
+
+.result-tile.accent .tile-value { color: #fff; }
+.result-tile.profit .tile-value { color: #1e6642; }
+.result-tile.loss .tile-value { color: #c4421f; }
+
+/* ─── 6. Tabs & Visualizations ───────────────────── */
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0;
+  border-bottom: 1.5px solid var(--border);
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 44px;
+  margin-bottom: -1.5px;
+  padding: clamp(8px, 2vw, 10px) clamp(12px, 3vw, 18px);
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-family: var(--font-display);
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: none;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tab-btn.active {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.chart-wrap {
+  height: 280px;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background: #fff;
+}
+
+/* ─── 7. Table ───────────────────────────────────── */
+.table-scroll {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 280px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 600px) {
+  .table-scroll {
+    max-height: 350px;
+  }
+}
+
+.details-table {
+  width: 100%;
+  min-width: 500px;
+  border-collapse: collapse;
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+}
+
+@media (max-width: 600px) {
+  .details-table {
+    min-width: 450px;
+    font-size: 0.78rem;
+  }
+}
+
+.details-table th {
+  position: sticky;
+  top: 0;
+  padding: clamp(8px, 1vw, 10px) clamp(10px, 2vw, 14px);
+  font-family: var(--font-display);
+  font-size: clamp(0.65rem, 1.5vw, 0.72rem);
+  color: white;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: #000000;
+}
+
+.details-table td {
+  padding: clamp(8px, 1vw, 9px) clamp(10px, 2vw, 14px);
+  border-bottom: 1px solid var(--border);
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.details-table tr:hover td {
+  background: #00000035;
+}
+
+.details-table .pos {
+  font-weight: 600;
+  color: #1e8f5e;
+}
+
+.details-table .neg {
+  font-weight: 600;
+  color: #c4421f;
+}
+
+/* ─── 8. Empty States & Utilities ────────────────── */
+#emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 300px;
+  color: var(--muted);
+}
+
+#emptyState .empty-icon {
+  font-size: 3rem;
+  opacity: 0.5;
+}
+
+#emptyState p {
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}

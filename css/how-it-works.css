@@ -1,0 +1,218 @@
+/* =========================================================================
+   HOW IT WORKS PAGE STYLES
+   ========================================================================= */
+
+/* ─── 1. Hero ────────────────────────────────────── */
+.how-hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 7rem) clamp(1rem, 4vw, 3.5rem) 1.5rem;
+}
+
+@media (max-width: 500px) {
+  .how-hero {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* ─── 2. Steps ───────────────────────────────────── */
+.steps-list {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 0;
+}
+
+.steps-list::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  bottom: 28px;
+  left: 28px;
+  width: 2px;
+  border-radius: 1px;
+  background: linear-gradient(to bottom, var(--accent), var(--accent2));
+}
+
+@media (max-width: 600px) {
+  .steps-list::before {
+    left: 20px;
+  }
+}
+
+.step-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  align-items: start;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+@media (max-width: 600px) {
+  .step-item {
+    grid-template-columns: 44px 1fr;
+    gap: 1rem;
+  }
+}
+
+.step-num {
+  display: grid;
+  position: relative;
+  z-index: 1;
+  place-items: center;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+  background: var(--accent);
+  box-shadow: 0 4px 16px rgba(32, 32, 31, 0.4);
+}
+
+@media (max-width: 600px) {
+  .step-num {
+    width: 42px;
+    height: 42px;
+    font-size: 0.9rem;
+  }
+}
+
+.step-body {
+  padding-top: 10px;
+}
+
+.step-title {
+  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.step-desc {
+  max-width: 560px;
+  font-size: clamp(0.88rem, 1.5vw, 0.92rem);
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.step-formula {
+  display: inline-block;
+  overflow-x: auto;
+  margin-top: 1rem;
+  padding: clamp(10px, 2vw, 14px) clamp(12px, 3vw, 20px);
+  border-radius: var(--radius-sm);
+  font-family: 'Courier New', monospace;
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+  color: #fff;
+  background: var(--ink);
+  -webkit-overflow-scrolling: touch;
+}
+
+.step-formula .hl {
+  color: var(--gold);
+}
+
+/* ─── 3. Concepts Grid ───────────────────────────── */
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.concept-card {
+  padding: 1.8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--card-bg);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.concept-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.concept-icon {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.concept-title {
+  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.concept-desc {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+/* ─── 4. Risk Table ──────────────────────────────── */
+.risk-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.risk-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.risk-table th {
+  padding: 14px 20px;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(245, 242, 235, 0.85);
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--ink);
+}
+
+.risk-table td {
+  padding: 13px 20px;
+  border-bottom: 1px solid var(--border);
+  color: var(--ink);
+}
+
+.risk-table tr:last-child td {
+  border-bottom: none;
+}
+
+.risk-table .tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.tag-low {
+  color: #1e6642;
+  background: #eefaf4;
+}
+
+.tag-med {
+  color: #7a5c10;
+  background: #fff8e6;
+}
+
+.tag-high {
+  color: #9b2f1e;
+  background: #fff0ee;
+}
