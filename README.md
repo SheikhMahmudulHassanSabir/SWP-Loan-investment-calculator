@@ -1,6 +1,6 @@
 # Loan2Wealth — Loan-Funded Investment Calculator
 
-![Loan2Wealth Overview](index.html) <!-- Replace with an actual screenshot or banner if available -->
+![Loan2Wealth Overview](A.png)
 
 **Loan2Wealth** is a financial projection tool designed to simulate the strategy of taking a loan to fund an investment, and subsequently using a Systematic Withdrawal Plan (SWP) to repay the monthly Equated Monthly Installment (EMI). 
 
